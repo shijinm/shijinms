@@ -1,0 +1,2 @@
+var uriParam = window.encodeURIComponent;
+

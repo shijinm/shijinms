@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Log</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cerulean/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container" onload="serverTime(); clientTime()">
+    <h1>
+        Web App Challenge
+    </h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Server Time
+                </th>
+                <th>
+                    Client Time
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Time : <span id="servertime"></span>
+                </th>
+                <th>Date : <span id="clienttime"></span>
+                </th>
+            </tr>
+            <tr>
+                <th>Time : <span id="serverdate"></span>
+
+                </th>
+                <th>Date: <span id="clientdate"></span>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-success" onclick="getTime();">
+        Save Current Log
+    </button>
+    <button class="btn btn-info" onclick="location.href='displayLog.html'">Get Log Details</button>
+    <script src="js/moment.min.js">
+    </script>
+    <script src="js/aliases.js">
+    </script>
+    <script src="js/ajax.js">
+    </script>
+    <script src="js/main.js">
+    </script>
+</body>
+
+</html>
