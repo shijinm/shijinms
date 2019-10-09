@@ -34,7 +34,7 @@ function serverTime() {
 function getTime() {
     var dateTime = moment(dateTime).format("HH:mm:ss DD-MM-YYYY");
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'db1.php?date=' + uriParam(dateTime), true);
+    xhr.open('GET', 'dbpdo.php?date=' + uriParam(dateTime), true);
     xhr.send();
 }
 
