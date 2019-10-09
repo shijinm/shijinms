@@ -36,8 +36,9 @@ class Db
     
     function insertLog($clientIp, $serverDate, $clientTime)
     {
-        $query = "INSERT INTO ip(client_ip,server_datetime,client_datetime) VALUES (?,?,?)";
-        return $this->query($query, [$clientIp, $serverDate, $clientTime]);
+        $query = "INSERT INTO ip(client_ip,server_datetime,client_datetime) 
+                    VALUES (?,?,?)";
+        return $this->query($query, [&$clientIp, &$serverDate, &$clientTime]);
     }
 
     function query(string $sql, array $arguments){
@@ -46,9 +47,8 @@ class Db
         foreach($arguments as $arg){
             $argTypes .= $this->getArgType($arg);
         }
-
-        $statement->bind_param($argTypes, $arguments);
-        \call_user_func_array([$statement, 'bind_param'], [$argTypes] + $arguments);
+        $bindArgs = array_merge([$argTypes], $arguments);
+        \call_user_func_array([$statement, 'bind_param'], $bindArgs);
         return $statement->execute();
     }
 
