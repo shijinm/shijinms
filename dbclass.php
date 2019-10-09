@@ -36,7 +36,7 @@ class Db
     
     function insertLog($clientIp, $serverDate, $clientTime)
     {
-        $query = "INSERT INTO ip(client_ip,server_datetime,client_datetime) 
+        $query = "INSERT INTO logdetails(client_ip,server_datetime,client_datetime) 
                     VALUES (?,?,?)";
         return $this->query($query, [&$clientIp, &$serverDate, &$clientTime]);
     }
@@ -72,7 +72,7 @@ class Db
     
 
     function getLog(){
-        $result = mysqli_query($this->conn, "SELECT * FROM ip");
+        $result = mysqli_query($this->conn, "SELECT * FROM logdetails");
         $data =array();
         while($row = mysqli_fetch_assoc($result)){
             $data[] = $row;

@@ -1,7 +1,7 @@
 <?php
 
      $conn = mysqli_connect("localhost","root","","tutorial");
-     $result = mysqli_query($conn, "SELECT * FROM ip");
+     $result = mysqli_query($conn, "SELECT * FROM logdetails");
      
      
      $data =array();

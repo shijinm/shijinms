@@ -10,8 +10,7 @@ class Db{
     private $databaseName;
 
     public function __construct(){
-    
-        
+        connect();        
     }
 
     function connect(){
@@ -25,12 +24,16 @@ class Db{
 
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } 
-        catch (PDOException $e) {
-            echo "Error while connecting to Database". $e->getMessage();
+        catch (PDOException $ex) {
+            echo "Error while connecting to Database". $ex->getMessage();
         }
         
 
       
+    }
+
+    function displayLog(){
+       $stmt = $pdo->query('SELECT * FROM logdetails');
     }
 }
    
